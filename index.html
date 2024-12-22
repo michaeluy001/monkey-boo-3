@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Monkey-Boo!</title>
+
+    <style>
+        body {
+            background-color: burlywood; 
+            justify-items: center;  
+            height: 700px;
+        }
+        .container {            
+            display: flex;
+            flex-direction: column;
+            width: 380px;
+            height: 700px;
+            border: 5px solid olivedrab ;
+            background-image: url("./pictures/jungletheme.jpeg");
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-position-x: 50%; 
+            background-position-x: 50%;
+        }
+        .main-board {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 380px;
+
+        }
+
+        .button-holder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #play {
+            padding: 15px 25px;
+            font-size: 24px;
+            width: 150px;
+            height: 100px;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #e2a41f;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 6px -6px 3px 1px #3e702e
+        }
+        #play:hover {
+            background-color: #798600
+        }   
+
+        #play:active {                    /*  i need to learn what this does */
+            background-color: #abad00e5;
+            box-shadow: 0 5px #6b6a6a;
+            transform: translateY(4px);           
+        }
+
+        .title-holder {
+            width: auto;
+            height: auto;
+            align-items: center;
+            justify-items: center ;
+        }
+
+        #title {
+            width: 450px;
+            height: 450px;
+        }
+
+        footer {
+            position: fixed;
+            text-align: center;
+            justify-items: center;
+            background-color: #002c14;
+            color: white;
+            font-size: 14px;
+            width: 480px;   
+            height:50px;  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-board">
+            <div class="title-holder">
+                <img id="title" src="./pictures/game-title.png" alt="Monkey-boo! logo">
+                <p id="high-score"> Your Highest score: </p>
+            </div>
+            <div class="button-holder">
+                <Button type="Button" id="play">Start Game!</Button>   
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+<!-- <footer>
+    <p>&copy; 2024 Monkey-Boo!. All rights reserved. Created by Michael Uy</p>
+</footer> -->
+
+<script src="scripts/main menu.js"></script>
+</html>
