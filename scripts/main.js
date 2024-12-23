@@ -19,6 +19,9 @@ backButton.addEventListener("click", back);
 const board = document.getElementById("status");
 const score = document.getElementById("score");
 const displayCurLevel = document.getElementById("current-level");
+
+      // experimental: for saving the highScore variable
+
 let grid = document.querySelector(".grid");
 let currentLevel = 1; // Level set to 1 by dafault
 let cells = grid.children;
@@ -52,16 +55,14 @@ function guess(event) {
 
     if (monkeysCurrentNums.includes(clickedCell)) {  /* It checks every hit if it's the monkey */
         monkeySound.play();
-        // assign monkeys
+        // Reveal Monkey-boos
+        for (let i = 0; i < bananaCells.length; i++) { 
+            document.getElementById(bananaCells[i].getAttribute("id")).style.backgroundImage = "url('pictures/banana.png')";
+        } 
         for (let i = 0; i < monkeysCurrentNums.length; i++) { 
             document.getElementById(monkeysCurrentNums[i].getAttribute("id")).style.backgroundImage = "url('pictures/monkey-boo!.png')";
         }
-        // assign non-monkey cells
-        for (let i = 0; i < bananaCells.length; i++) { 
-            document.getElementById(bananaCells[i].getAttribute("id")).style.backgroundImage = "url('pictures/banana.png')";
-        }
-
-        board.innerText = "Monkey-boo! \n You Got:";
+        board.innerText = "You just got Monkey-booed! \n You Got:";
         gameOver();   
         deactivateCell()
         gameOverLose.play();
@@ -72,26 +73,29 @@ function guess(event) {
             board.innerText = randomPhrase();
             pop.play();
             deactivateCell();
-
         if (bananasFound == bananasToFind) {
-                clickedCell.style.backgroundImage = "url('pictures/banana.png')";
-                monkeyCell.style.backgroundImage = "url('pictures/frustrated monkey.png')";
-                clickedCell.removeEventListener("click", guess);
-                roundClear = true;
-                gameOver();
-                deactivateCell();
-                board.innerText = "Great job! \n Now, move to the next level.";
+            for (let i=0; i < monkeysCurrentNums.length; i++) {
+                console.log(monkeysCurrentNums);
+                document.getElementById(monkeysCurrentNums[i].getAttribute("id")).style.backgroundImage = "url('pictures/frustrated monkey.png')";
+            }
+            roundClear = true;
+            gameOver();
+            deactivateCell();
+            board.innerText = "Great job! \n Now, move to the next level.";
                 youWonSound.play();
         }     
     }
     function deactivateCell() {
         if(gameIsOver) {
             for (let i = 0; i < cells.length; i++) {
-                cells[i].style.border = "5px solid rgb(129, 163, 71)"; 
+                cells[i].style.borderColor = "rgb(129, 163, 71)"; 
                 cells[i].style.backgroundColor = "rgb(206, 206, 183)";
+                removeAllListeners();
             }
         } else {
             clickedCell.style.backgroundImage = "url('pictures/banana.png')";
+            clickedCell.style.backgroundColor = "rgb(206, 206, 183)";
+            clickedCell.style.borderColor = "rgb(129, 163, 71)"; 
             clickedCell.removeEventListener("click", guess);
         }
     }
@@ -118,12 +122,12 @@ function randomPhrase() {
 function gameOver() {
     gameIsOver = true;
     bgMusic.pause();
-    removeAllListeners();
+    
     finalScore = finalScore + bananasFound;
     score.innerText = finalScore;
-
     if(roundClear==true) {
         nextLevelButton.style.display = "flex";
+        
     } else {
         playAgainButton.style.display = "flex";
     }   
@@ -143,28 +147,53 @@ function nextLevel() {
     for(let i=0; i < cells.length; i++) {
         document.getElementById(cells[i].getAttribute("id")).style.backgroundImage = "";
         document.getElementById(cells[i].getAttribute("id")).style.backgroundColor = "beige";
+        document.getElementById(cells[i].getAttribute("id")).style.borderColor = "darkolivegreen"; 
     }
-    startGame();
+    
     bananasFound = 0;
     gameIsOver = false;
     roundClear = false;
     nextLevelButton.style.display = "none";
+    monkeysCurrentNums = new Array;
+    startGame();
 }
+
+
 function startGame() {
 
+    score.innerText = "Click on any cell to begin.";
+
+
     switch (currentLevel) { 
-        case 1: bananasToFind = cells.length-1; break;
-        case 2: bananasToFind = cells.length-2; break;
-        case 3: bananasToFind = cells.length-3; break;
-        case 4: bananasToFind = cells.length-4; break;
-        case 5: bananasToFind = cells.length-5; break;
-        case 6: bananasToFind = cells.length-6; break;
-        case 7: bananasToFind = cells.length-7; break;
-        case 8: bananasToFind = cells.length-8; break;
+        case 1: bananasToFind = cells.length-1;
+                board.innerText =  "Gather as much bananas as you can. Beware! Monkey-boo is hiding in one of the cells. ";
+                break;
+        case 2: bananasToFind = cells.length-2;
+                board.innerText = "Heads up! Two Monkey-boos are hiding now. Can you dodge their tricks?";
+                break;
+        case 3: bananasToFind = cells.length-3; 
+                board.innerText = "Brace yourself! Three Monkey-boos are on the loose. Stay sharp!";
+                break;
+        case 4: bananasToFind = cells.length-4; 
+                 board.innerText =  "Watch out! Four Monkey-boos are lurking. One wrong move, and it’s Monkey-boo!";
+                break;
+        case 5: bananasToFind = cells.length-5; 
+                board.innerText = "Things are heating up. Five Monkey-boos are in the shadows now. Can you handle the pressure?";       
+                break;
+        case 6: bananasToFind = cells.length-6; 
+                board.innerText = "Get ready! Now, Six Monkey-boos are hiding. Don’t let them catch you off guard!";              
+                break;
+        case 7: bananasToFind = cells.length-7; 
+                board.innerText =  "It’s getting wild! Seven Monkey-boos are waiting to strike. You’ll need more than luck!";       
+                break;
+        case 8: bananasToFind = cells.length-8; 
+                board.innerText =  "You are on the final phase. Eight Monkey-boos are hiding. \n"
+                                    "It means only 1 banana is remaining. Good luck!";       
+                break;
     }
-    
+
+    // Give each cell an event listener and then generate random index nums for the monkey-boos.
     for (let i = 0; i < cells.length; i++) { cells[i].addEventListener("click", guess); }
-    // Generate a random index for the monkey cell, give each cell an event listener
     while (monkeysCurrentNums.length < currentLevel) {
         function randNum(min, max) { return Math.floor(Math.random()*cells.length); } 
         monkeyCell = cells[randNum(0,cells.length)];
@@ -183,94 +212,10 @@ function startGame() {
         }
     }    
 }
- 
- const highScore = finalScore;
+
+
+
+
+
+
     
-
-
-
-/* This is a project of mine so I can be familiar again with programming, 
-test my logical power and imagination though writting codes. This is just a generic name that over time will 
-get updated with more functions and features to make it as exciting and fun to play.
-
-I do hope that along the way,
- I will be able to make the code as efficient and as precise as I could, 
- promoting flexibility and readabilty 
-
-===================================================================================================================
-
-Monkey Boo project all rights reserved 2024
-
-Mechanics:
-
-Reveal the monkey when there is only 1 cell left (meaning all fruits were gathered) - done
-Add more Buttons and options like "Try again" and revise scoring system - done
-Get as much fruit as you can by click-guessing on each of the cells - done
-Different fruits will be added (different points)
-Add more cells 
-Different fruits will be added (different points)
-difficulty progress (more monkeys will be added)
-
-
-User Interface/Audio:
-User interface should be improved - long term plan
-more SFX
-Get the BG music running - ys but with flaw
-===================================================================================================================
-PSEUDOCODE
-
-Pseudocode Monkey Boo!
-
-Everytime the player clicks, checks two conditions
-
-1. if it hits the cell containing the monkey, then call gameOver function. Otherwise, register the click and store it in an incrementing variable.
-   and then prevent the player from clicking on the cell.
-2.If the player has enough bananas, call gameOver function
-
-
-gameOver function:
-
-If bananas were all gathered, do action 1
-Otherwise, do action 2
-
-Finally,
- displays the final score; disable clicks on all cells; the "Play again Button"(reset the browser)
-
-
-Action 1: play winning audio, reveal monkey 1
-Action 2: play losing audio, reveal monkey 2
-
-===================================================================================================================
-
- UPDATES WRITTEN HERE 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-

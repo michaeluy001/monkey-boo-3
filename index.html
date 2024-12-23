@@ -15,7 +15,7 @@
             justify-items: center;  
             height: 700px;
         }
-        .container {            
+        .main-frame {            
             display: flex;
             flex-direction: column;
             width: 380px;
@@ -37,7 +37,7 @@
 
         }
 
-        .button-holder {
+        .bttn-holder {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,26 +92,30 @@
             width: 480px;   
             height:50px;  
         }
+
+        p {
+            font-family: "Caveat Brush", cursive;
+            font-size: larger;
+            color: rgb(28, 39, 9);
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-frame">
         <div class="main-board">
             <div class="title-holder">
                 <img id="title" src="./pictures/game-title.png" alt="Monkey-boo! logo">
-                <p id="high-score"> Your Highest score: </p>
+                <p id="high-score"> Your Highest score:
+                    <p id="current-high-score"></p> 
+                </p>
             </div>
-            <div class="button-holder">
+            <div class="bttn-holder">
                 <Button type="Button" id="play">Start Game!</Button>   
             </div>
         </div>
     </div>
-
-
-
-
 </body>
-
 <!-- <footer>
     <p>&copy; 2024 Monkey-Boo!. All rights reserved. Created by Michael Uy</p>
 </footer> -->
