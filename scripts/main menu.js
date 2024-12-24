@@ -3,14 +3,17 @@ const playButton = document.getElementById("play");
 // const animateScreen = new Animation;
 // const keyFrameScreen = new KeyframeEffect;
 playButton.addEventListener("click", startGame);
-const currentHighScore = 0;
 
-getHighScore();
+let highScoreContainer = document.getElementById("current-high-score");
 
-function getHighScore() {
-   document.getElementById("current-high-score").innerText = localStorage.getItem(currentHighScore);
-}
 
+let showScore = Number(localStorage.getItem("highScore"));
+
+if (showScore == 0 ) { 
+   highScoreContainer.innerText = "?";
+} else {
+   highScoreContainer.innerText = showScore;
+} 
 
 function startGame() {
 
