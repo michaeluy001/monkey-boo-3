@@ -9,22 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Monkey-Boo!</title>
     <style>
-        body {
-            background-color: burlywood; 
-            justify-items: center;  
-            height: 700px;
+
+        html {
+
+            align-items: center;
+            justify-items: center;
         }
-        .main-frame {            
+        body {
             display: flex;
             flex-direction: column;
-            width: 380px;
+            background-color: burlywood; 
+            align-items: center;
+            justify-items: center;  
             height: 700px;
+            width: 400px;
+            margin: 0px;
             border: 5px solid olivedrab ;
             background-image: url("./pictures/jungletheme.jpeg");
-            background-size: 110%;
+            background-size: 400px;
             background-repeat: no-repeat;
             background-position-x: 50%; 
             background-position-y: 50%;
+        }
+        .main-frame {            
+            width: 380px;
+            height: 700px;
+
         }
         .main-board {
             display: flex;
@@ -44,10 +54,10 @@
         }
 
         #play {
-            padding: 15px 25px;
+            padding: 10px;
             font-size: 24px;
             width: 150px;
-            height: 100px;
+            height: 50px;
             align-items: center;
             cursor: pointer;
             text-align: center;
@@ -75,21 +85,11 @@
             align-items: center;
             justify-items: center ;
         }
-
         #title {
             width: 450px;
             height: 450px;
         }
-        footer {
-            position: fixed;
-            text-align: center;
-            justify-items: center;
-            background-color: #002c14;
-            color: white;
-            font-size: 14px;
-            width: 480px;   
-            height:50px;  
-        }
+
         p {
             font-family: "Caveat Brush", cursive;
             font-size: larger;
@@ -111,6 +111,16 @@
             justify-content: center;
             align-items: center;
         }
+        footer {
+
+            text-align: center;
+            justify-items: center;
+            background-color: #002c14;
+            color: white;
+            font-size: 14px;
+            width: 100wv;   
+            height:20px;
+        }
     </style>
 </head>
 <body>
@@ -126,10 +136,12 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2024 Monkey-Boo!. All rights reserved. Created by Michael Uy</p>
+    </footer>
 </body>
-<!-- <footer>
-    <p>&copy; 2024 Monkey-Boo!. All rights reserved. Created by Michael Uy</p>
-</footer> -->
+
+
 
 <script src="scripts/main menu.js"></script>
 

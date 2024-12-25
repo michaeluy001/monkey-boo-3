@@ -211,6 +211,40 @@ Button {
     background-color: rgb(148, 148, 0);
 }
 
+#dialog-start {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    padding: 25px;
+    background-color: #094e00;
+    border: 5px outset black;
+    border-radius: 15px;
+    color: rgb(236, 236, 59);
+    font-family: "Caveat Brush", cursive;
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: 5px;
+    line-height: 30px;
+    border-image: url('/pictures/wooden-border.png');
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+
+#dialog-button {
+    display: flex;
+    font-size: 1rem;
+    font-family: "Caveat Brush", cursive;
+    width: 100px;
+    height: 50px;
+    align-items: center;
+    justify-items: center ;
+    background-color: beige;
+    color: brown
+}
+
 
 
 

@@ -21,8 +21,11 @@ backButton.addEventListener("click", back);
 const board = document.getElementById("status");
 const score = document.getElementById("score");
 const displayCurLevel = document.getElementById("current-level");
-// experimental: for saving the highScore variable
 let grid = document.querySelector(".grid");
+// const dialogBoxButton = document.getElementById("dialog-button");
+// const dialogBox = document.getElementById("dialog-start");
+// dialogBox.showModal();
+// dialogBoxButton.addEventListener("click", closeDialogBox);
 let currentLevel = 1; // Level set to 1 by dafault
 displayCurLevel.innerText = currentLevel;
 let cells = grid.children;
@@ -38,13 +41,10 @@ let bananaCells = new Array; // contains bananas to hit
 let roundClear = false;
 
 
-
-// determines the current level the player is at.
-
 startGame();
 
 function guess(event) { 
-    // bgMusic.play();
+    
     let clickedCell = document.getElementById(event.target.getAttribute("id"));                           
     const pop = new Audio('./sounds/pop.mp3');
     pop.currentTime = 0;
@@ -220,6 +220,11 @@ function startGame() {
 
 }
 
+
+
+// function closeDialogBox() {
+//     dialogBox.close();
+// }
 
 
 
