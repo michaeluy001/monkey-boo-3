@@ -1,2 +1,2 @@
-# monkey-boo-3
+# Monkey-boo.fun
 Monkey-boo! project
