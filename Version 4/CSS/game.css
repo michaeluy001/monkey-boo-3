@@ -1,0 +1,252 @@
+body {
+    background-color: burlywood; 
+    justify-items: center;
+    height: 700px;
+}
+.container {                /* Contains the platform and the dashboard */   
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 380px 200px 20px;
+    width: 380px;
+    height: 700px;
+    border: 5px solid olivedrab ;
+    background-image: url("../pictures/jungletheme.jpeg");
+    background-size: 110%;
+    background-repeat: no-repeat;
+    background-position: center; 
+    row-gap: 5px;
+}
+.platform {                 /* HOLDS the cell container */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grid {                     /* Holds the cells */
+    height: 350px;
+    width: 350px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid: repeat(3, auto) / auto-flow;
+    background-color: #ffbe469f;
+    border-style: double;
+    border-radius: 20px;
+    border-width: 10px;
+    border-color: #001a0ce7;
+
+}
+.cell {       
+    width:70%;
+    height:70%;
+    border-radius: 50%;
+    background-color: beige;
+    border: 5px solid darkolivegreen;
+    background-size: 105%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-property: transform;
+    transition-delay: 0s;
+    transition-timing-function: ease-in;
+    transition-duration: 0.1s;
+}
+.cell:hover {
+    transform: scale(1.1,1.1);
+    background-color: rgb(206, 206, 183);
+    border-color:  rgb(129, 163, 71); 
+}
+.dashboard {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    background-color: rgba(218, 160, 0, 0.884);
+    background-size: 150%;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    color: #0e4434;
+}
+#score-board {
+    align-content: center;
+    text-align: center;
+    width: 90%;
+    height: contain;
+    margin: 0px;
+    padding: 3px;
+    font-family: "Caveat Brush", cursive;
+    background-color: #be945b;
+    background-size: 60%;
+    border-radius: 30%;
+}
+#score {
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 0px;
+    margin: 5px;
+    color:#FFBF46;
+    transition-property: transform;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+#score:after {
+    transform: scale(2,2);
+}
+#status {
+    font-size: 20px;
+    color: rgb(128, 62, 18);
+    font-family: "Caveat Brush", cursive;
+    font-weight: bolder;
+    font-style: normal;
+}
+span {
+    font-size: 150%;
+}
+#yellow-text {
+    color: yellow;
+    font-size: medium;
+}
+#brown-text {
+    color: brown;
+    font-size: larger;
+}
+.button-holder {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr ;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 10px;
+}
+Button {
+    display: none;
+    height: 25px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: fantasy;
+    letter-spacing: 0.5%;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #1f4e11b9;
+}
+
+
+.inGameOptions {
+    display: flex;
+    justify-content: space-between;
+    font-family: fantasy;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 50px;
+    width: 350px;
+    column-gap: 20px;
+}
+
+.level-display {
+    width: 50px;
+    height: 25px;
+    background-color: #01441fad;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 3px outset rgb(7, 27, 15);
+    border-radius: 15px;
+    color: white;
+}
+
+#current-level {
+    width:10px;
+    display: flex;
+    font-size: medium;
+    color: white;
+}
+
+#back {  /* back Button */ 
+    display: flex;
+    background-color: rgba(255, 166, 0, 0.753);
+    color:rgb(77, 24, 24);
+}
+#back:hover {
+    background-color:rgb(255, 166, 0);
+}   
+#back:active {                    
+    background-color: rgb(255, 145, 0);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);   
+}
+.game-over-button:hover {
+    background-color: #3e8e41;
+}   
+
+.game-over-button:active {                    
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);           
+}
+.misc {
+    margin-top: 6%;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 30px;
+    background-color: #001a0cc2;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+#switch-BG {
+    background-color: rgb(148, 148, 0);
+}
+
+#dialog-start {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    padding: 25px;
+    background-color: #094e00;
+    border: 5px outset black;
+    border-radius: 15px;
+    color: rgb(236, 236, 59);
+    font-family: "Caveat Brush", cursive;
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: 5px;
+    line-height: 30px;
+    border-image: url('/pictures/wooden-border.png');
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+
+#dialog-button {
+    display: flex;
+    font-size: 1rem;
+    font-family: "Caveat Brush", cursive;
+    width: 100px;
+    height: 50px;
+    align-items: center;
+    justify-items: center ;
+    background-color: beige;
+    color: brown
+}
+
+
+
+
+
+
